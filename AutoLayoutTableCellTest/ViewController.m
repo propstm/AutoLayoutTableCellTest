@@ -17,7 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.tableView.estimatedRowHeight = 210.0f;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.tableView registerClass:[AutolayoutTableViewCell self] forCellReuseIdentifier:@"testCell"];
 }
 
