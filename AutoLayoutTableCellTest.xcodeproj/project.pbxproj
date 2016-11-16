@@ -15,6 +15,7 @@
 		903372721DDC953000BEC5DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 903372701DDC953000BEC5DA /* LaunchScreen.storyboard */; };
 		9033727D1DDC953100BEC5DA /* AutoLayoutTableCellTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9033727C1DDC953100BEC5DA /* AutoLayoutTableCellTestTests.m */; };
 		903372881DDC953100BEC5DA /* AutoLayoutTableCellTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 903372871DDC953100BEC5DA /* AutoLayoutTableCellTestUITests.m */; };
+		903372971DDC974C00BEC5DA /* AutolayoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 903372961DDC974C00BEC5DA /* AutolayoutTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		903372831DDC953100BEC5DA /* AutoLayoutTableCellTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoLayoutTableCellTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		903372871DDC953100BEC5DA /* AutoLayoutTableCellTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutTableCellTestUITests.m; sourceTree = "<group>"; };
 		903372891DDC953100BEC5DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		903372951DDC974C00BEC5DA /* AutolayoutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutTableViewCell.h; sourceTree = "<group>"; };
+		903372961DDC974C00BEC5DA /* AutolayoutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				903372701DDC953000BEC5DA /* LaunchScreen.storyboard */,
 				903372731DDC953000BEC5DA /* Info.plist */,
 				903372621DDC953000BEC5DA /* Supporting Files */,
+				903372951DDC974C00BEC5DA /* AutolayoutTableViewCell.h */,
+				903372961DDC974C00BEC5DA /* AutolayoutTableViewCell.m */,
 			);
 			path = AutoLayoutTableCellTest;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			files = (
 				9033726A1DDC953000BEC5DA /* ViewController.m in Sources */,
 				903372671DDC953000BEC5DA /* AppDelegate.m in Sources */,
+				903372971DDC974C00BEC5DA /* AutolayoutTableViewCell.m in Sources */,
 				903372641DDC953000BEC5DA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
