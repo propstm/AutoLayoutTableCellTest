@@ -16,6 +16,7 @@
 		9033727D1DDC953100BEC5DA /* AutoLayoutTableCellTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9033727C1DDC953100BEC5DA /* AutoLayoutTableCellTestTests.m */; };
 		903372881DDC953100BEC5DA /* AutoLayoutTableCellTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 903372871DDC953100BEC5DA /* AutoLayoutTableCellTestUITests.m */; };
 		903372971DDC974C00BEC5DA /* AutolayoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 903372961DDC974C00BEC5DA /* AutolayoutTableViewCell.m */; };
+		903372F41DDCC36900BEC5DA /* AFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 903372F31DDCC36900BEC5DA /* AFTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		903372891DDC953100BEC5DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		903372951DDC974C00BEC5DA /* AutolayoutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutTableViewCell.h; sourceTree = "<group>"; };
 		903372961DDC974C00BEC5DA /* AutolayoutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutTableViewCell.m; sourceTree = "<group>"; };
+		903372F21DDCC36900BEC5DA /* AFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFTableViewCell.h; sourceTree = "<group>"; };
+		903372F31DDCC36900BEC5DA /* AFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 		903372611DDC953000BEC5DA /* AutoLayoutTableCellTest */ = {
 			isa = PBXGroup;
 			children = (
+				903372F21DDCC36900BEC5DA /* AFTableViewCell.h */,
+				903372F31DDCC36900BEC5DA /* AFTableViewCell.m */,
 				903372651DDC953000BEC5DA /* AppDelegate.h */,
 				903372661DDC953000BEC5DA /* AppDelegate.m */,
 				903372681DDC953000BEC5DA /* ViewController.h */,
@@ -281,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				903372F41DDCC36900BEC5DA /* AFTableViewCell.m in Sources */,
 				9033726A1DDC953000BEC5DA /* ViewController.m in Sources */,
 				903372671DDC953000BEC5DA /* AppDelegate.m in Sources */,
 				903372971DDC974C00BEC5DA /* AutolayoutTableViewCell.m in Sources */,

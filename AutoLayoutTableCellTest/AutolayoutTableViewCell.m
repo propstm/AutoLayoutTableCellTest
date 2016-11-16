@@ -53,6 +53,7 @@
         [self.bottomView setTranslatesAutoresizingMaskIntoConstraints:NO];
         [self addSubview:self.bottomView];
     }
+    self.bottomViewHeight = 150;
     
     [self updateConstraints];
     
@@ -65,10 +66,13 @@
     //Create local versions of the ivars
     UILabel *titleLabelP = self.cellTitle;
     UIView *bottomViewP = self.bottomView;
-
+    NSLog(@"BOTTOM VIEW HEIGHT: %i", self.bottomViewHeight);
+    NSNumber *bottomViewHeightP = [NSNumber numberWithInt:self.bottomViewHeight];
+    NSLog(@"BOTTOM VIEW HEIGHT P: %@", bottomViewHeightP);
+    
     //Build the visual constraints
     NSDictionary *views = NSDictionaryOfVariableBindings(titleLabelP, bottomViewP);
-    NSDictionary *metrics = @{ @"padding" : @8.0, @"viewHeight": @150.0 };
+    NSDictionary *metrics = @{ @"padding" : @8.0, @"viewHeight": bottomViewHeightP };
 
     // title and bottom view fill the width of the superview (cell content view)
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[titleLabelP]-padding-|" options:0 metrics:metrics views:views]];
