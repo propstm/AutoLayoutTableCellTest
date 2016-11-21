@@ -23,6 +23,7 @@ static NSString *CollectionViewCellIdentifier = @"CollectionViewCellIdentifier";
 @property (nonatomic, strong) IBOutlet AFIndexedCollectionView *collectionView;
 //@property (nonatomic, strong) AFIndexedCollectionView *collectionView;
 @property (nonatomic, assign) NSInteger areasOfImpactHeight;
+@property (readwrite) int bottomViewHeight;
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 

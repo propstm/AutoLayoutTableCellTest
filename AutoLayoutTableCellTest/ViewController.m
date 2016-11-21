@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "AutolayoutTableViewCell.h"
+
+//SOURCE: https://ashfurrow.com/blog/putting-a-uicollectionview-in-a-uitableviewcell/
 #import "AFTableViewCell.h"
 
 @interface ViewController ()
@@ -61,31 +63,6 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    NSIndexPath *secondIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-    /*
-    if(firstIndexPath.row == 0){
-        
-        AutolayoutTableViewCell *cell = (AutolayoutTableViewCell*)[self.tableView cellForRowAtIndexPath:secondIndexPath];
-        
-        NSLog(@"----------------------------------------------------");
-        NSLog(@"----------------------------------------------------");
-        NSLog(@"WAS ANYTHING CREATED:");
-        NSLog(@"CELL TITLE: %@", cell.cellTitle);
-        NSLog(@"CELL BOTTOM VIEW: %@", cell.bottomView);
-
-    }
-    if(secondIndexPath.row == 1){
-        AFTableViewCell *afCell = (AFTableViewCell*)[self.tableView cellForRowAtIndexPath:secondIndexPath];
-        
-        NSLog(@"----------------------------------------------------");
-        NSLog(@"----------------------------------------------------");
-        NSLog(@"WAS ANYTHING CREATED:");
-        NSLog(@"CELL TITLE: %@", afCell.titleLabel.text);
-        NSLog(@"CELL BOTTOM VIEW: %@", afCell.collectionView);
-    }
-
-*/
     
 }
 
@@ -137,6 +114,8 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //create and display cells -- Autolayout for cells done in cell's .m files
+    
     if(indexPath.row == 0 || indexPath.row == 2){
         AutolayoutTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"testCell"];
             
@@ -148,7 +127,7 @@
         NSString *cellTitleText = [NSString stringWithFormat:@"CURRENT INDEXPATH ROW: %li", indexPath.row];
         [cell.cellTitle setText:cellTitleText];
         [cell.bottomView setBackgroundColor:[UIColor greenColor]];
-        [cell setBottomViewHeight:100];
+        //[cell setBottomViewHeight:100];
 
         return cell;
     }
@@ -187,12 +166,6 @@
     
     NSArray *collectionViewArray = self.colorArray[[(AFIndexedCollectionView *)collectionView indexPath].row];
     cell.backgroundColor = collectionViewArray[indexPath.item];
-    UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, cell.frame.size.width-10, 44)];
-    [lbl setText:@"Productivity"];
-    UIFont *regularFont = [UIFont fontWithName:@".SFUIText-Regular" size:10.0f];
-    [lbl setFont:regularFont];
-    [lbl setTextAlignment:NSTextAlignmentCenter];
-    [cell.contentView addSubview:lbl];
     
     return cell;
 }

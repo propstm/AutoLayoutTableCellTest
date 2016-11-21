@@ -38,6 +38,8 @@
         [self addSubview:self.titleLabel];
     }
     
+    self.bottomViewHeight = 150;
+    
     [self updateConstraints];
     return self;
 }
@@ -48,21 +50,19 @@
     //Create local versions of the ivars
     UILabel *titleLabelP = self.titleLabel;
     UIView *bottomViewP = self.collectionView;
-    NSLog(@"BOTTOM VIEW HEIGHT: %li", self.areasOfImpactHeight);
-    NSNumber *bottomViewHeightP = [NSNumber numberWithInteger:self.areasOfImpactHeight];
-    NSLog(@"BOTTOM VIEW HEIGHT P: %@", bottomViewHeightP);
+    NSNumber *bottomViewHeightP = [NSNumber numberWithInteger:self.bottomViewHeight];
+    
     
     //Build the visual constraints
     NSDictionary *views = NSDictionaryOfVariableBindings(titleLabelP, bottomViewP);
-    NSDictionary *metrics = @{ @"padding" : @8.0, @"viewHeight": @150.0 };
+    NSDictionary *metrics = @{ @"padding" : @8.0, @"viewHeight": bottomViewHeightP };
     
     // title and bottom view fill the width of the superview (cell content view)
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[titleLabelP]-padding-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[bottomViewP]-padding-|" options:0 metrics:metrics views:views]];
     // title and bottom view are setup vertically with 8px of padding between.  The cell should expand to fit the full size of the bottom view.
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-padding-[titleLabelP]-padding-[bottomViewP(viewHeight)]-padding-|" options:0 metrics:metrics views:views]];
-    
-    NSLog(@"HIT UPDATE CONSTRAINT CODE");
+
 }
 
 

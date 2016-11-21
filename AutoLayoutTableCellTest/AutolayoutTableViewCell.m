@@ -66,9 +66,8 @@
     //Create local versions of the ivars
     UILabel *titleLabelP = self.cellTitle;
     UIView *bottomViewP = self.bottomView;
-    NSLog(@"BOTTOM VIEW HEIGHT: %i", self.bottomViewHeight);
     NSNumber *bottomViewHeightP = [NSNumber numberWithInt:self.bottomViewHeight];
-    NSLog(@"BOTTOM VIEW HEIGHT P: %@", bottomViewHeightP);
+   
     
     //Build the visual constraints
     NSDictionary *views = NSDictionaryOfVariableBindings(titleLabelP, bottomViewP);
@@ -79,8 +78,6 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[bottomViewP]-padding-|" options:0 metrics:metrics views:views]];
     // title and bottom view are setup vertically with 8px of padding between.  The cell should expand to fit the full size of the bottom view.
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-padding-[titleLabelP]-padding-[bottomViewP(viewHeight)]-padding-|" options:0 metrics:metrics views:views]];
-    
-    NSLog(@"HIT UPDATE CONSTRAINT CODE");
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
