@@ -21,26 +21,31 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.sectionInset = UIEdgeInsetsMake(10, 10, 9, 10);
     layout.itemSize = CGSizeMake(100, 100);
-    //layout.itemSize = CGSizeMake(93, 93);
     
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self.collectionView = [[AFIndexedCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CollectionViewCellIdentifier];
+    
     [self.collectionView setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.showsHorizontalScrollIndicator = NO;
     [self.contentView addSubview:self.collectionView];
-    if(!self.titleLabel){
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 8, self.frame.size.width-8, 20)];
-        [self.titleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-        UIFont *boldFont = [UIFont fontWithName:@".SFUIText-Bold" size:16.0f];
-        [self.titleLabel setFont:boldFont];
-        [self addSubview:self.titleLabel];
+    
+    //lazy init ivars
+    if(!self.cellTitle){
+        self.cellTitle = [[UILabel alloc] init];
+        [self.cellTitle setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.contentView addSubview:self.cellTitle];
     }
     
-    self.bottomViewHeight = 150;
-    
-    [self updateConstraints];
+    if(!self.bottomView){
+        self.bottomView = [[UIView alloc] init];
+        [self.bottomView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.contentView addSubview:self.bottomView];
+    }
+    //self.bottomViewHeight = 350;
+    //[self.contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    //[self updateConstraints];
     return self;
 }
 
@@ -48,9 +53,9 @@
     [super updateConstraints];
     
     //Create local versions of the ivars
-    UILabel *titleLabelP = self.titleLabel;
+    UILabel *titleLabelP = self.cellTitle;
     UIView *bottomViewP = self.collectionView;
-    NSNumber *bottomViewHeightP = [NSNumber numberWithInteger:self.bottomViewHeight];
+    NSNumber *bottomViewHeightP = [NSNumber numberWithInt:self.bottomViewHeight];
     
     
     //Build the visual constraints
@@ -58,18 +63,17 @@
     NSDictionary *metrics = @{ @"padding" : @8.0, @"viewHeight": bottomViewHeightP };
     
     // title and bottom view fill the width of the superview (cell content view)
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[titleLabelP]-padding-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[bottomViewP]-padding-|" options:0 metrics:metrics views:views]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[titleLabelP]-padding-|" options:0 metrics:metrics views:views]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[bottomViewP]-padding-|" options:0 metrics:metrics views:views]];
     // title and bottom view are setup vertically with 8px of padding between.  The cell should expand to fit the full size of the bottom view.
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-padding-[titleLabelP]-padding-[bottomViewP(viewHeight)]-padding-|" options:0 metrics:metrics views:views]];
-
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-padding-[titleLabelP]-padding-[bottomViewP(viewHeight)]-padding-|" options:0 metrics:metrics views:views]];
 }
 
 
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.collectionView.frame = self.contentView.bounds;
+    //self.collectionView.frame = self.contentView.bounds;
 }
 
 

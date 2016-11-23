@@ -85,8 +85,8 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     //create header view
-    UIView *sectionHeader = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 44)];
-    [sectionHeader setBackgroundColor:[UIColor whiteColor]];
+    UIView *sectionHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 44)];
+    [sectionHeader setBackgroundColor:[UIColor greenColor]];
     
     
     //create and style label in header view
@@ -124,8 +124,9 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"testCell"];
         }
 
-        NSString *cellTitleText = [NSString stringWithFormat:@"CURRENT INDEXPATH ROW: %li", indexPath.row];
+        NSString *cellTitleText = [NSString stringWithFormat:@"This will be a multiple line label for a title: CURRENT INDEXPATH ROW: %li", indexPath.row];
         [cell.cellTitle setText:cellTitleText];
+        [cell.cellTitle setNumberOfLines:0];
         [cell.bottomView setBackgroundColor:[UIColor greenColor]];
         //[cell setBottomViewHeight:100];
 
@@ -138,18 +139,33 @@
     if (!cell)
     {
         cell = [[AFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        [cell setBottomViewHeight:300];
+        [cell layoutSubviews];
     }
-    NSString *cellTitleText = [NSString stringWithFormat:@"CURRENT INDEXPATH ROW: %li", indexPath.row];
-    [cell.titleLabel setText:cellTitleText];
+    NSString *cellTitleText = [NSString stringWithFormat:@"...CURRENT INDEXPATH ROW: %li", indexPath.row];
+    [cell.cellTitle setText:cellTitleText];
+    //[cell.cellTitle setNumberOfLines:0];
 
     [cell setCollectionViewDataSourceDelegate:self indexPath:indexPath];
+    
+    NSLog(@"CALL UPDATE CONSTRAINTS");
+    [cell updateConstraints];
+    NSLog(@"CALLED UPDATE CONSTRAINTS");
+    
     NSInteger index = cell.collectionView.indexPath.row;
     
     CGFloat horizontalOffset = [self.contentOffsetDictionary[[@(index) stringValue]] floatValue];
     [cell.collectionView setContentOffset:CGPointMake(horizontalOffset, 0)];
     
     return cell;
+ 
  }
+
+
+- (CGFloat)tableView:(UITableView *)tableView
+estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
 
 
 #pragma mark - UICollectionViewDataSource Methods

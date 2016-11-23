@@ -45,17 +45,18 @@
     if(!self.cellTitle){
         self.cellTitle = [[UILabel alloc] init];
         [self.cellTitle setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:self.cellTitle];
+        [self.contentView addSubview:self.cellTitle];
     }
     
     if(!self.bottomView){
         self.bottomView = [[UIView alloc] init];
         [self.bottomView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self addSubview:self.bottomView];
+        [self.contentView addSubview:self.bottomView];
     }
     self.bottomViewHeight = 150;
     
     [self updateConstraints];
+    
     
     return self;
 }
@@ -74,10 +75,10 @@
     NSDictionary *metrics = @{ @"padding" : @8.0, @"viewHeight": bottomViewHeightP };
 
     // title and bottom view fill the width of the superview (cell content view)
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[titleLabelP]-padding-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[bottomViewP]-padding-|" options:0 metrics:metrics views:views]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[titleLabelP]-padding-|" options:0 metrics:metrics views:views]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[bottomViewP]-padding-|" options:0 metrics:metrics views:views]];
     // title and bottom view are setup vertically with 8px of padding between.  The cell should expand to fit the full size of the bottom view.
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-padding-[titleLabelP]-padding-[bottomViewP(viewHeight)]-padding-|" options:0 metrics:metrics views:views]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-padding-[titleLabelP]-padding-[bottomViewP(viewHeight)]-padding-|" options:0 metrics:metrics views:views]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -20,12 +20,13 @@ static NSString *CollectionViewCellIdentifier = @"CollectionViewCellIdentifier";
 
 @interface AFTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet AFIndexedCollectionView *collectionView;
-//@property (nonatomic, strong) AFIndexedCollectionView *collectionView;
-@property (nonatomic, assign) NSInteger areasOfImpactHeight;
+@property (nonatomic, strong) AFIndexedCollectionView *collectionView;
+@property (strong, nonatomic) UILabel *cellTitle;
+@property (strong, nonatomic) UIView *bottomView;
 @property (readwrite) int bottomViewHeight;
 
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (nonatomic, assign) NSInteger areasOfImpactHeight;
+
 
 - (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate indexPath:(NSIndexPath *)indexPath;
 

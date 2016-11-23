@@ -89,7 +89,6 @@
 			children = (
 				903372611DDC953000BEC5DA /* AutoLayoutTableCellTest */,
 				9033727B1DDC953100BEC5DA /* AutoLayoutTableCellTestTests */,
-				903372861DDC953100BEC5DA /* AutoLayoutTableCellTestUITests */,
 				903372601DDC953000BEC5DA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +134,7 @@
 		9033727B1DDC953100BEC5DA /* AutoLayoutTableCellTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				903372861DDC953100BEC5DA /* AutoLayoutTableCellTestUITests */,
 				9033727C1DDC953100BEC5DA /* AutoLayoutTableCellTestTests.m */,
 				9033727E1DDC953100BEC5DA /* Info.plist */,
 			);
@@ -147,7 +147,8 @@
 				903372871DDC953100BEC5DA /* AutoLayoutTableCellTestUITests.m */,
 				903372891DDC953100BEC5DA /* Info.plist */,
 			);
-			path = AutoLayoutTableCellTestUITests;
+			name = AutoLayoutTableCellTestUITests;
+			path = ../AutoLayoutTableCellTestUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -528,6 +529,7 @@
 				9033728E1DDC953100BEC5DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9033728F1DDC953100BEC5DA /* Build configuration list for PBXNativeTarget "AutoLayoutTableCellTestTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +538,7 @@
 				903372911DDC953100BEC5DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		903372921DDC953100BEC5DA /* Build configuration list for PBXNativeTarget "AutoLayoutTableCellTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +547,7 @@
 				903372941DDC953100BEC5DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
